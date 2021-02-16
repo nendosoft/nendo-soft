@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -27,7 +27,8 @@ import NavItem from './NavItem';
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
   jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
+  // name: 'Katarina Smith'
+  name: 'Yoshitaka Hayase'
 };
 
 const items = [
@@ -86,10 +87,21 @@ const useStyles = makeStyles(() => ({
     cursor: 'pointer',
     width: 64,
     height: 64
+  },
+  name: {
   }
 }));
 
-const NavBar = ({ onMobileClose, openMobile }) => {
+type Props = {
+  onMobileClose: () => {};
+  openMobile: boolean;
+};
+
+// const NavBar = ({ onMobileClose, openMobile }) => {
+const NavBar: FC<Required<Props>> = ({
+  onMobileClose = () => undefined,
+  openMobile = false
+}) => {
   const classes = useStyles();
   const location = useLocation();
 
@@ -137,6 +149,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         <List>
           {items.map((item) => (
             <NavItem
+              className="" // classNameは必須です.
               href={item.href}
               key={item.title}
               title={item.title}
@@ -209,14 +222,14 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   );
 };
 
-NavBar.propTypes = {
-  onMobileClose: PropTypes.func,
-  openMobile: PropTypes.bool
-};
+// NavBar.propTypes = {
+//   onMobileClose: PropTypes.func,
+//   openMobile: PropTypes.bool
+// };
 
-NavBar.defaultProps = {
-  onMobileClose: () => {},
-  openMobile: false
-};
+// NavBar.defaultProps = {
+//   onMobileClose: () => {},
+//   openMobile: false
+// };
 
 export default NavBar;
