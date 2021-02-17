@@ -1,17 +1,7 @@
-import React, { useEffect, FC } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {
-  Avatar,
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  Hidden,
-  List,
-  Typography,
-  makeStyles
-} from '@material-ui/core';
+import React, { useEffect, FC } from "react";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Avatar, Box, Button, Divider, Drawer, Hidden, List, Typography, makeStyles } from "@material-ui/core";
 import {
   AlertCircle as AlertCircleIcon,
   BarChart as BarChartIcon,
@@ -20,76 +10,76 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   UserPlus as UserPlusIcon,
-  Users as UsersIcon
-} from 'react-feather';
-import NavItem from './NavItem';
+  Users as UsersIcon,
+} from "react-feather";
+import NavItem from "./NavItem";
 
 const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
+  avatar: "/static/images/avatars/avatar_12.png",
+  jobTitle: "Senior Developer",
   // name: 'Katarina Smith'
-  name: 'Yoshitaka Hayase'
+  name: "Yoshitaka Hayase",
 };
 
 const items = [
   {
-    href: '/app/dashboard',
+    href: "/app/dashboard",
     icon: BarChartIcon,
-    title: 'Dashboard'
+    title: "Dashboard",
   },
   {
-    href: '/app/customers',
+    href: "/app/customers",
     icon: UsersIcon,
-    title: 'Customers'
+    title: "Customers",
   },
   {
-    href: '/app/products',
+    href: "/app/products",
     icon: ShoppingBagIcon,
-    title: 'Products'
+    title: "Products",
   },
   {
-    href: '/app/account',
+    href: "/app/account",
     icon: UserIcon,
-    title: 'Account'
+    title: "Account",
   },
   {
-    href: '/app/settings',
+    href: "/app/settings",
     icon: SettingsIcon,
-    title: 'Settings'
+    // title: "Settings",
+    title: "FirebaseTest",
   },
   {
-    href: '/login',
+    href: "/login",
     icon: LockIcon,
-    title: 'Login'
+    title: "Login",
   },
   {
-    href: '/register',
+    href: "/register",
     icon: UserPlusIcon,
-    title: 'Register'
+    title: "Register",
   },
   {
-    href: '/404',
+    href: "/404",
     icon: AlertCircleIcon,
-    title: 'Error'
-  }
+    title: "Error",
+  },
 ];
 
 const useStyles = makeStyles(() => ({
   mobileDrawer: {
-    width: 256
+    width: 256,
   },
   desktopDrawer: {
     width: 256,
     top: 64,
-    height: 'calc(100% - 64px)'
+    height: "calc(100% - 64px)",
   },
   avatar: {
-    cursor: 'pointer',
+    cursor: "pointer",
     width: 64,
-    height: 64
+    height: 64,
   },
-  name: {
-  }
+  name: {},
 }));
 
 type Props = {
@@ -98,10 +88,7 @@ type Props = {
 };
 
 // const NavBar = ({ onMobileClose, openMobile }) => {
-const NavBar: FC<Required<Props>> = ({
-  onMobileClose = () => undefined,
-  openMobile = false
-}) => {
+const NavBar: FC<Required<Props>> = ({ onMobileClose = () => undefined, openMobile = false }) => {
   const classes = useStyles();
   const location = useLocation();
 
@@ -113,34 +100,13 @@ const NavBar: FC<Required<Props>> = ({
   }, [location.pathname]);
 
   const content = (
-    <Box
-      height="100%"
-      display="flex"
-      flexDirection="column"
-    >
-      <Box
-        alignItems="center"
-        display="flex"
-        flexDirection="column"
-        p={2}
-      >
-        <Avatar
-          className={classes.avatar}
-          component={RouterLink}
-          src={user.avatar}
-          to="/app/account"
-        />
-        <Typography
-          className={classes.name}
-          color="textPrimary"
-          variant="h5"
-        >
+    <Box height="100%" display="flex" flexDirection="column">
+      <Box alignItems="center" display="flex" flexDirection="column" p={2}>
+        <Avatar className={classes.avatar} component={RouterLink} src={user.avatar} to="/app/account" />
+        <Typography className={classes.name} color="textPrimary" variant="h5">
           {user.name}
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
+        <Typography color="textSecondary" variant="body2">
           {user.jobTitle}
         </Typography>
       </Box>
@@ -159,35 +125,15 @@ const NavBar: FC<Required<Props>> = ({
         </List>
       </Box>
       <Box flexGrow={1} />
-      <Box
-        p={2}
-        m={2}
-        bgcolor="background.dark"
-      >
-        <Typography
-          align="center"
-          gutterBottom
-          variant="h4"
-        >
+      <Box p={2} m={2} bgcolor="background.dark">
+        <Typography align="center" gutterBottom variant="h4">
           Need more?
         </Typography>
-        <Typography
-          align="center"
-          variant="body2"
-        >
+        <Typography align="center" variant="body2">
           Upgrade to PRO version and access 20 more screens
         </Typography>
-        <Box
-          display="flex"
-          justifyContent="center"
-          mt={2}
-        >
-          <Button
-            color="primary"
-            component="a"
-            href="https://react-material-kit.devias.io"
-            variant="contained"
-          >
+        <Box display="flex" justifyContent="center" mt={2}>
+          <Button color="primary" component="a" href="https://react-material-kit.devias.io" variant="contained">
             See PRO version
           </Button>
         </Box>
@@ -198,23 +144,12 @@ const NavBar: FC<Required<Props>> = ({
   return (
     <>
       <Hidden lgUp>
-        <Drawer
-          anchor="left"
-          classes={{ paper: classes.mobileDrawer }}
-          onClose={onMobileClose}
-          open={openMobile}
-          variant="temporary"
-        >
+        <Drawer anchor="left" classes={{ paper: classes.mobileDrawer }} onClose={onMobileClose} open={openMobile} variant="temporary">
           {content}
         </Drawer>
       </Hidden>
       <Hidden mdDown>
-        <Drawer
-          anchor="left"
-          classes={{ paper: classes.desktopDrawer }}
-          open
-          variant="persistent"
-        >
+        <Drawer anchor="left" classes={{ paper: classes.desktopDrawer }} open variant="persistent">
           {content}
         </Drawer>
       </Hidden>
