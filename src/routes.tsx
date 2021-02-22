@@ -11,6 +11,7 @@ import ProductListView from "views/product/ProductListView";
 import RegisterView from "views/auth/RegisterView";
 import SettingsView from "views/settings/SettingsView/Index";
 import Create from "views/settings/SettingsView/Create";
+import Detail from "views/settings/SettingsView/Detail";
 
 const routes = [
   {
@@ -27,6 +28,7 @@ const routes = [
         children: [
           { path: "/", element: <SettingsView /> },
           { path: "create", element: <Create /> },
+          { path: "detail/:docId", element: <Detail /> },
         ],
       },
       { path: "*", element: <Navigate to="/404" /> },

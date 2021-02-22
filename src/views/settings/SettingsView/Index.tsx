@@ -12,7 +12,7 @@ const SettingsView: FC = () => {
   const [list, setList] = useState<firebase.firestore.DocumentData>();
 
   useEffect(() => {
-    //データ取得
+    // Firestoreからデータ取得
     const getData = async () => {
       const colRef = db
         .collection("members")
@@ -79,7 +79,7 @@ const SettingsView: FC = () => {
                       <td className={classes.root}>{item.name}</td>
                       <td className={classes.root}>{item.email}</td>
                       <td className={classes.root}>
-                        <Link to={`/Detail/${item.docId}`}>詳細</Link>
+                        <Link to={`/app/settings/detail/${item.docId}`}>詳細</Link>
                       </td>
                     </tr>
                   ))
