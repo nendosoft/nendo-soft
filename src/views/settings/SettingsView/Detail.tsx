@@ -56,7 +56,7 @@ const Detail: FC = () => {
     }
   };
 
-  //値を取得
+  // 値を取得
   useEffect(() => {
     getMember(docId);
 
@@ -86,14 +86,14 @@ const Detail: FC = () => {
           <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label for="name">氏名</Label>
-              {/* <Input type="text" name="name" id="name" value={values.name} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.name && errors.name)} /> */}
-              <Input type="text" name="name" id="name" value={values.name} />
+              <Input type="text" name="name" id="name" value={values.name} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.name && errors.name)} />
+              {/* <Input type="text" name="name" id="name" value={values.name} onChange={handleChange} /> */}
               <FormFeedback>{errors.name}</FormFeedback>
             </FormGroup>
             <FormGroup>
               <Label for="email">Email</Label>
-              {/* <Input type="email" email="email" id="email" value={values.email} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.email && errors.email)} /> */}
-              <Input type="email" email="email" id="email" value={values.email} />
+              <Input type="email" email="email" id="email" value={values.email} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.email && errors.email)} />
+              {/* <Input type="email" email="email" id="email" value={values.email} onChange={handleChange} /> */}
               <FormFeedback>{errors.email}</FormFeedback>
             </FormGroup>
             <Button type="submit" color="success">

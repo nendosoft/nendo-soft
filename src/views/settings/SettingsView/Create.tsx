@@ -62,12 +62,14 @@ const Create = () => {
               <Form onSubmit={handleSubmit}>
                 <FormGroup>
                   <Label for="name">氏名</Label>
-                  <Input type="text" name="name" id="name" value={values.name} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.name && errors.name)} />
+                  {/* <Input type="text" name="name" id="name" value={values.name} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.name && errors.name)} /> */}
+                  <Input type="text" name="name" id="name" value={values.name} onChange={handleChange} invalid={Boolean(touched.name && errors.name)} />
                   <FormFeedback>{errors.name}</FormFeedback>
                 </FormGroup>
                 <FormGroup>
                   <Label for="email">Email</Label>
-                  <Input type="email" email="email" id="email" value={values.email} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.email && errors.email)} />
+                  {/* <Input type="email" email="email" id="email" value={values.email} onChange={handleChange} onBlur={handleBlur} invalid={Boolean(touched.email && errors.email)} /> */}
+                  <Input type="email" email="email" id="email" value={values.email} onChange={handleChange} invalid={Boolean(touched.email && errors.email)} />
                   <FormFeedback>{errors.email}</FormFeedback>
                 </FormGroup>
                 <Button type="submit">登録</Button>
